@@ -33,7 +33,7 @@ public class HtmlingUtil {
     Class<?> clazz = object.getClass();
     Field[] fields = clazz.getDeclaredFields();
     PropertyData propertyData = getClassProperty(clazz);
-    String prefix = "<div" +
+    String prefix = "<div className=\"" + clazz.getSimpleName() + "\"" +
         (propertyData.styles.equals("")
             ? ">"
             : String.format(" style=\"%s\">", propertyData.styles));
@@ -60,7 +60,7 @@ public class HtmlingUtil {
     }
     PropertyData propertyData = getFieldProperty(field);
     String styles = propertyData.styles;
-    String prefix = "<div" +
+    String prefix = "<div field=\"" + field.getName() + "\"" +
         (styles.equals("")
             ? ">"
             : String.format(" style=\"%s\">", styles));
@@ -117,7 +117,7 @@ public class HtmlingUtil {
       return "";
     }
     return Arrays.stream(annotations)
-        .map(style -> style.name() + ":" + style.value() + ";")
+        .map(style -> style.property() + ":" + style.value() + ";")
         .collect(Collectors.joining());
   }
 
