@@ -5,853 +5,848 @@ public enum CSSProperty {
   /**
    * Specifies the alignment of flexible container's items within the flex container.
    */
-  ALIGN_CONTENT("align-content"),
+  ALIGN_CONTENT,
 
   /**
    * Specifies the default alignment for items within the flex container.
    */
-  ALIGN_ITEMS("align-items"),
+  ALIGN_ITEMS,
 
   /**
    * Specifies the alignment for selected items within the flex container.
    */
-  ALIGN_SELF("align-self"),
+  ALIGN_SELF,
 
   /**
    * Specifies the keyframe-based animations.
    */
-  ANIMATION("animation"),
+  ANIMATION,
 
   /**
    * Specifies when the animation will start.
    */
-  ANIMATION_DELAY("animation-delay"),
+  ANIMATION_DELAY,
 
   /**
    * Specifies whether the animation should play in reverse on alternate cycles or not.
    */
-  ANIMATION_DIRECTION("animation-direction"),
+  ANIMATION_DIRECTION,
 
   /**
    * Specifies the number of seconds or milliseconds an animation should take to complete one
    * cycle.
    */
-  ANIMATION_DURATION("animation-duration"),
+  ANIMATION_DURATION,
 
   /**
    * Specifies how a CSS animation should apply styles to its target before and after it is
    * executing.
    */
-  ANIMATION_FILL_MODE("animation-fill-mode"),
+  ANIMATION_FILL_MODE,
 
   /**
    * Specifies the number of times an animation cycle should be played before stopping.
    */
-  ANIMATION_ITERATION_COUNT("animation-iteration-count"),
+  ANIMATION_ITERATION_COUNT,
 
   /**
    * Specifies the name of @keyframes defined animations that should be applied to the selected
    * element.
    */
-  ANIMATION_NAME("animation-name"),
+  ANIMATION_NAME,
 
   /**
    * Specifies whether the animation is running or paused.
    */
-  ANIMATION_PLAY_STATE("animation-play-state"),
+  ANIMATION_PLAY_STATE,
 
   /**
    * Specifies how a CSS animation should progress over the duration of each cycle.
    */
-  ANIMATION_TIMING_FUNCTION("animation-timing-function"),
+  ANIMATION_TIMING_FUNCTION,
 
   /**
    * Specifies whether or not the "back" side of a transformed element is visible when facing the
    * user.
    */
-  BACKFACE_VISIBILITY("backface-visibility"),
+  BACKFACE_VISIBILITY,
 
   /**
    * Defines a variety of background properties within one declaration.
    */
-  BACKGROUND("background"),
+  BACKGROUND,
 
   /**
    * Specify whether the background image is fixed in the viewport or scrolls.
    */
-  BACKGROUND_ATTACHMENT("background-attachment"),
+  BACKGROUND_ATTACHMENT,
 
   /**
    * Specifies the painting area of the background.
    */
-  BACKGROUND_CLIP("background-clip"),
+  BACKGROUND_CLIP,
 
   /**
    * Defines an element's background color.
    */
-  BACKGROUND_COLOR("background-color"),
+  BACKGROUND_COLOR,
 
   /**
    * Defines an element's background image.
    */
-  BACKGROUND_IMAGE("background-image"),
+  BACKGROUND_IMAGE,
 
   /**
    * Specifies the positioning area of the background images.
    */
-  BACKGROUND_ORIGIN("background-origin"),
+  BACKGROUND_ORIGIN,
 
   /**
    * Defines the origin of a background image.
    */
-  BACKGROUND_POSITION("background-position"),
+  BACKGROUND_POSITION,
 
   /**
    * Specify whether/how the background image is tiled.
    */
-  BACKGROUND_REPEAT("background-repeat"),
+  BACKGROUND_REPEAT,
 
   /**
    * Specifies the size of the background images.
    */
-  BACKGROUND_SIZE("background-size"),
+  BACKGROUND_SIZE,
 
   /**
    * Sets the width, style, and color for all four sides of an element's border.
    */
-  BORDER("border"),
+  BORDER,
 
   /**
    * Sets the width, style, and color of the bottom border of an element.
    */
-  BORDER_BOTTOM("border-bottom"),
+  BORDER_BOTTOM,
 
   /**
    * Sets the color of the bottom border of an element.
    */
-  BORDER_BOTTOM_COLOR("border-bottom-color"),
+  BORDER_BOTTOM_COLOR,
 
   /**
    * Defines the shape of the bottom-left border corner of an element.
    */
-  BORDER_BOTTOM_LEFT_RADIUS("border-bottom-left-radius"),
+  BORDER_BOTTOM_LEFT_RADIUS,
 
   /**
    * Defines the shape of the bottom-right border corner of an element.
    */
-  BORDER_BOTTOM_RIGHT_RADIUS("border-bottom-right-radius"),
+  BORDER_BOTTOM_RIGHT_RADIUS,
 
   /**
    * Sets the style of the bottom border of an element.
    */
-  BORDER_BOTTOM_STYLE("border-bottom-style"),
+  BORDER_BOTTOM_STYLE,
 
   /**
    * Sets the width of the bottom border of an element.
    */
-  BORDER_BOTTOM_WIDTH("border-bottom-width"),
+  BORDER_BOTTOM_WIDTH,
 
   /**
    * Specifies whether table cell borders are connected or separated.
    */
-  BORDER_COLLAPSE("border-collapse"),
+  BORDER_COLLAPSE,
 
   /**
    * Sets the color of the border on all the four sides of an element.
    */
-  BORDER_COLOR("border-color"),
+  BORDER_COLOR,
 
   /**
    * Specifies how an image is to be used in place of the border styles.
    */
-  BORDER_IMAGE("border-image"),
+  BORDER_IMAGE,
 
   /**
    * Specifies the amount by which the border image area extends beyond the border box.
    */
-  BORDER_IMAGE_OUTSET("border-image-outset"),
+  BORDER_IMAGE_OUTSET,
 
   /**
    * Specifies whether the image-border should be repeated, rounded or stretched.
    */
-  BORDER_IMAGE_REPEAT("border-image-repeat"),
+  BORDER_IMAGE_REPEAT,
 
   /**
    * Specifies the inward offsets of the image-border.
    */
-  BORDER_IMAGE_SLICE("border-image-slice"),
+  BORDER_IMAGE_SLICE,
 
   /**
    * Specifies the location of the image to be used as a border.
    */
-  BORDER_IMAGE_SOURCE("border-image-source"),
+  BORDER_IMAGE_SOURCE,
 
   /**
    * Specifies the width of the image-border.
    */
-  BORDER_IMAGE_WIDTH("border-image-width"),
+  BORDER_IMAGE_WIDTH,
 
   /**
    * Sets the width, style, and color of the left border of an element.
    */
-  BORDER_LEFT("border-left"),
+  BORDER_LEFT,
 
   /**
    * Sets the color of the left border of an element.
    */
-  BORDER_LEFT_COLOR("border-left-color"),
+  BORDER_LEFT_COLOR,
 
   /**
    * Sets the style of the left border of an element.
    */
-  BORDER_LEFT_STYLE("border-left-style"),
+  BORDER_LEFT_STYLE,
 
   /**
    * Sets the width of the left border of an element.
    */
-  BORDER_LEFT_WIDTH("border-left-width"),
+  BORDER_LEFT_WIDTH,
 
   /**
    * Defines the shape of the border corners of an element.
    */
-  BORDER_RADIUS("border-radius"),
+  BORDER_RADIUS,
 
   /**
    * Sets the width, style, and color of the right border of an element.
    */
-  BORDER_RIGHT("border-right"),
+  BORDER_RIGHT,
 
   /**
    * Sets the color of the right border of an element.
    */
-  BORDER_RIGHT_COLOR("border-right-color"),
+  BORDER_RIGHT_COLOR,
 
   /**
    * Sets the style of the right border of an element.
    */
-  BORDER_RIGHT_STYLE("border-right-style"),
+  BORDER_RIGHT_STYLE,
 
   /**
    * Sets the width of the right border of an element.
    */
-  BORDER_RIGHT_WIDTH("border-right-width"),
+  BORDER_RIGHT_WIDTH,
 
   /**
    * Sets the spacing between the borders of adjacent table cells.
    */
-  BORDER_SPACING("border-spacing"),
+  BORDER_SPACING,
 
   /**
    * Sets the style of the border on all the four sides of an element.
    */
-  BORDER_STYLE("border-style"),
+  BORDER_STYLE,
 
   /**
    * Sets the width, style, and color of the top border of an element.
    */
-  BORDER_TOP("border-top"),
+  BORDER_TOP,
 
   /**
    * Sets the color of the top border of an element.
    */
-  BORDER_TOP_COLOR("border-top-color"),
+  BORDER_TOP_COLOR,
 
   /**
    * Defines the shape of the top-left border corner of an element.
    */
-  BORDER_TOP_LEFT_RADIUS("border-top-left-radius"),
+  BORDER_TOP_LEFT_RADIUS,
 
   /**
    * Defines the shape of the top-right border corner of an element.
    */
-  BORDER_TOP_RIGHT_RADIUS("border-top-right-radius"),
+  BORDER_TOP_RIGHT_RADIUS,
 
   /**
    * Sets the style of the top border of an element.
    */
-  BORDER_TOP_STYLE("border-top-style"),
+  BORDER_TOP_STYLE,
 
   /**
    * Sets the width of the top border of an element.
    */
-  BORDER_TOP_WIDTH("border-top-width"),
+  BORDER_TOP_WIDTH,
 
   /**
    * Sets the width of the border on all the four sides of an element.
    */
-  BORDER_WIDTH("border-width"),
+  BORDER_WIDTH,
 
   /**
    * Specify the location of the bottom edge of the positioned element.
    */
-  BOTTOM("bottom"),
+  BOTTOM,
 
   /**
    * Applies one or more drop-shadows to the element's box.
    */
-  BOX_SHADOW("box-shadow"),
+  BOX_SHADOW,
 
   /**
    * Alter the default CSS box model.
    */
-  BOX_SIZING("box-sizing"),
+  BOX_SIZING,
 
   /**
    * Specify the position of table's caption.
    */
-  CAPTION_SIDE("caption-side"),
+  CAPTION_SIDE,
 
   /**
    * Specifies the placement of an element in relation to floating elements.
    */
-  CLEAR("clear"),
+  CLEAR,
 
   /**
    * Defines the clipping region.
    */
-  CLIP("clip"),
+  CLIP,
 
   /**
    * Specify the color of the text of an element.
    */
-  COLOR("color"),
+  COLOR,
 
   /**
    * Specifies the number of columns in a multi-column element.
    */
-  COLUMN_COUNT("column-count"),
+  COLUMN_COUNT,
 
   /**
    * Specifies how columns will be filled.
    */
-  COLUMN_FILL("column-fill"),
+  COLUMN_FILL,
 
   /**
    * Specifies the gap between the columns in a multi-column element.
    */
-  COLUMN_GAP("column-gap"),
+  COLUMN_GAP,
 
   /**
    * Specifies a straight line, or "rule", to be drawn between each column in a multi-column
    * element.
    */
-  COLUMN_RULE("column-rule"),
+  COLUMN_RULE,
 
   /**
    * Specifies the color of the rules drawn between columns in a multi-column layout.
    */
-  COLUMN_RULE_COLOR("column-rule-color"),
+  COLUMN_RULE_COLOR,
 
   /**
    * Specifies the style of the rule drawn between the columns in a multi-column layout.
    */
-  COLUMN_RULE_STYLE("column-rule-style"),
+  COLUMN_RULE_STYLE,
 
   /**
    * Specifies the width of the rule drawn between the columns in a multi-column layout.
    */
-  COLUMN_RULE_WIDTH("column-rule-width"),
+  COLUMN_RULE_WIDTH,
 
   /**
    * Specifies how many columns an element spans across in a multi-column layout.
    */
-  COLUMN_SPAN("column-span"),
+  COLUMN_SPAN,
 
   /**
    * Specifies the optimal width of the columns in a multi-column element.
    */
-  COLUMN_WIDTH("column-width"),
+  COLUMN_WIDTH,
 
   /**
    * A shorthand property for setting column-width and column-count properties.
    */
-  COLUMNS("columns"),
+  COLUMNS,
 
   /**
    * Inserts generated content.
    */
-  CONTENT("content"),
+  CONTENT,
 
   /**
    * Increments one or more counter values.
    */
-  COUNTER_INCREMENT("counter-increment"),
+  COUNTER_INCREMENT,
 
   /**
    * Creates or resets one or more counters.
    */
-  COUNTER_RESET("counter-reset"),
+  COUNTER_RESET,
 
   /**
    * Specify the type of cursor.
    */
-  CURSOR("cursor"),
+  CURSOR,
 
   /**
    * Define the text direction/writing direction.
    */
-  DIRECTION("direction"),
+  DIRECTION,
 
   /**
    * Specifies how an element is displayed onscreen.
    */
-  DISPLAY("display"),
+  DISPLAY,
 
   /**
    * Show or hide borders and backgrounds of empty table cells.
    */
-  EMPTY_CELLS("empty-cells"),
+  EMPTY_CELLS,
 
   /**
    * Specifies the components of a flexible length.
    */
-  FLEX("flex"),
+  FLEX,
 
   /**
    * Specifies the initial main size of the flex item.
    */
-  FLEX_BASIS("flex-basis"),
+  FLEX_BASIS,
 
   /**
    * Specifies the direction of the flexible items.
    */
-  FLEX_DIRECTION("flex-direction"),
+  FLEX_DIRECTION,
 
   /**
    * A shorthand property for the flex-direction and the flex-wrap properties.
    */
-  FLEX_FLOW("flex-flow"),
+  FLEX_FLOW,
 
   /**
    * Specifies how the flex item will grow relative to the other items inside the flex container.
    */
-  FLEX_GROW("flex-grow"),
+  FLEX_GROW,
 
   /**
    * Specifies how the flex item will shrink relative to the other items inside the flex container.
    */
-  FLEX_SHRINK("flex-shrink"),
+  FLEX_SHRINK,
 
   /**
    * Specifies whether the flexible items should wrap or not.
    */
-  FLEX_WRAP("flex-wrap"),
+  FLEX_WRAP,
 
   /**
    * Specifies whether or not a box should float.
    */
-  FLOAT("float"),
+  FLOAT,
 
   /**
    * Defines a variety of font properties within one declaration.
    */
-  FONT("font"),
+  FONT,
 
   /**
    * Defines a list of fonts for element.
    */
-  FONT_FAMILY("font-family"),
+  FONT_FAMILY,
 
   /**
    * Defines the font size for the text.
    */
-  FONT_SIZE("font-size"),
+  FONT_SIZE,
 
   /**
    * Preserves the readability of text when font fallback occurs.
    */
-  FONT_SIZE_ADJUST("font-size-adjust"),
+  FONT_SIZE_ADJUST,
 
   /**
    * Selects a normal, condensed, or expanded face from a font.
    */
-  FONT_STRETCH("font-stretch"),
+  FONT_STRETCH,
 
   /**
    * Defines the font style for the text.
    */
-  FONT_STYLE("font-style"),
+  FONT_STYLE,
 
   /**
    * Specify the font variant.
    */
-  FONT_VARIANT("font-variant"),
+  FONT_VARIANT,
 
   /**
    * Specify the font weight of the text.
    */
-  FONT_WEIGHT("font-weight"),
+  FONT_WEIGHT,
 
   /**
    * Specify the height of an element.
    */
-  HEIGHT("height"),
+  HEIGHT,
 
   /**
    * Specifies how flex items are aligned along the main axis of the flex container after any
    * flexible lengths and auto margins have been resolved.
    */
-  JUSTIFY_CONTENT("justify-content"),
+  JUSTIFY_CONTENT,
 
   /**
    * Specify the location of the left edge of the positioned element.
    */
-  LEFT("left"),
+  LEFT,
 
   /**
    * Sets the extra spacing between letters.
    */
-  LETTER_SPACING("letter-spacing"),
+  LETTER_SPACING,
 
   /**
    * Sets the height between lines of text.
    */
-  LINE_HEIGHT("line-height"),
+  LINE_HEIGHT,
 
   /**
    * Defines the display style for a list and list elements.
    */
-  LIST_STYLE("list-style"),
+  LIST_STYLE,
 
   /**
    * Specifies the image to be used as a list-item marker.
    */
-  LIST_STYLE_IMAGE("list-style-image"),
+  LIST_STYLE_IMAGE,
 
   /**
    * Specifies the position of the list-item marker.
    */
-  LIST_STYLE_POSITION("list-style-position"),
+  LIST_STYLE_POSITION,
 
   /**
    * Specifies the marker style for a list-item.
    */
-  LIST_STYLE_TYPE("list-style-type"),
+  LIST_STYLE_TYPE,
 
   /**
    * Sets the margin on all four sides of the element.
    */
-  MARGIN("margin"),
+  MARGIN,
 
   /**
    * Sets the bottom margin of the element.
    */
-  MARGIN_BOTTOM("margin-bottom"),
+  MARGIN_BOTTOM,
 
   /**
    * Sets the left margin of the element.
    */
-  MARGIN_LEFT("margin-left"),
+  MARGIN_LEFT,
 
   /**
    * Sets the right margin of the element.
    */
-  MARGIN_RIGHT("margin-right"),
+  MARGIN_RIGHT,
 
   /**
    * Sets the top margin of the element.
    */
-  MARGIN_TOP("margin-top"),
+  MARGIN_TOP,
 
   /**
    * Specify the maximum height of an element.
    */
-  MAX_HEIGHT("max-height"),
+  MAX_HEIGHT,
 
   /**
    * Specify the maximum width of an element.
    */
-  MAX_WIDTH("max-width"),
+  MAX_WIDTH,
 
   /**
    * Specify the minimum height of an element.
    */
-  MIN_HEIGHT("min-height"),
+  MIN_HEIGHT,
 
   /**
    * Specify the minimum width of an element.
    */
-  MIN_WIDTH("min-width"),
+  MIN_WIDTH,
 
   /**
    * Specifies the transparency of an element.
    */
-  OPACITY("opacity"),
+  OPACITY,
 
   /**
    * Specifies the order in which a flex items are displayed and laid out within a flex container.
    */
-  ORDER("order"),
+  ORDER,
 
   /**
    * Sets the width, style, and color for all four sides of an element's outline.
    */
-  OUTLINE("outline"),
+  OUTLINE,
 
   /**
    * Sets the color of the outline.
    */
-  OUTLINE_COLOR("outline-color"),
+  OUTLINE_COLOR,
 
   /**
    * Set the space between an outline and the border edge of an element.
    */
-  OUTLINE_OFFSET("outline-offset"),
+  OUTLINE_OFFSET,
 
   /**
    * Sets a style for an outline.
    */
-  OUTLINE_STYLE("outline-style"),
+  OUTLINE_STYLE,
 
   /**
    * Sets the width of the outline.
    */
-  OUTLINE_WIDTH("outline-width"),
+  OUTLINE_WIDTH,
 
   /**
    * Specifies the treatment of content that overflows the element's box.
    */
-  OVERFLOW("overflow"),
+  OVERFLOW,
 
   /**
    * Specifies the treatment of content that overflows the element's box horizontally.
    */
-  OVERFLOW_X("overflow-x"),
+  OVERFLOW_X,
 
   /**
    * Specifies the treatment of content that overflows the element's box vertically.
    */
-  OVERFLOW_Y("overflow-y"),
+  OVERFLOW_Y,
 
   /**
    * Sets the padding on all four sides of the element.
    */
-  PADDING("padding"),
+  PADDING,
 
   /**
    * Sets the padding to the bottom side of an element.
    */
-  PADDING_BOTTOM("padding-bottom"),
+  PADDING_BOTTOM,
 
   /**
    * Sets the padding to the left side of an element.
    */
-  PADDING_LEFT("padding-left"),
+  PADDING_LEFT,
 
   /**
    * Sets the padding to the right side of an element.
    */
-  PADDING_RIGHT("padding-right"),
+  PADDING_RIGHT,
 
   /**
    * Sets the padding to the top side of an element.
    */
-  PADDING_TOP("padding-top"),
+  PADDING_TOP,
 
   /**
    * Insert a page breaks after an element.
    */
-  PAGE_BREAK_AFTER("page-break-after"),
+  PAGE_BREAK_AFTER,
 
   /**
    * Insert a page breaks before an element.
    */
-  PAGE_BREAK_BEFORE("page-break-before"),
+  PAGE_BREAK_BEFORE,
 
   /**
    * Insert a page breaks inside an element.
    */
-  PAGE_BREAK_INSIDE("page-break-inside"),
+  PAGE_BREAK_INSIDE,
 
   /**
    * Defines the perspective from which all child elements of the object are viewed.
    */
-  PERSPECTIVE("perspective"),
+  PERSPECTIVE,
 
   /**
    * Defines the origin (the vanishing point for the 3D space) for the perspective property.
    */
-  PERSPECTIVE_ORIGIN("perspective-origin"),
+  PERSPECTIVE_ORIGIN,
 
   /**
    * Specifies how an element is positioned.
    */
-  POSITION("position"),
+  POSITION,
 
   /**
    * Specifies quotation marks for embedded quotations.
    */
-  QUOTES("quotes"),
+  QUOTES,
 
   /**
    * Specifies whether or not an element is resizable by the user.
    */
-  RESIZE("resize"),
+  RESIZE,
 
   /**
    * Specify the location of the right edge of the positioned element.
    */
-  RIGHT("right"),
+  RIGHT,
 
   /**
    * Specifies the length of the tab character.
    */
-  TAB_SIZE("tab-size"),
+  TAB_SIZE,
 
   /**
    * Specifies a table layout algorithm.
    */
-  TABLE_LAYOUT("table-layout"),
+  TABLE_LAYOUT,
 
   /**
    * Sets the horizontal alignment of inline content.
    */
-  TEXT_ALIGN("text-align"),
+  TEXT_ALIGN,
 
   /**
    * Specifies how the last line of a block or a line right before a forced line break is aligned
    * when text-align is justify.
    */
-  TEXT_ALIGN_LAST("text-align-last"),
+  TEXT_ALIGN_LAST,
 
   /**
    * Specifies the decoration added to text.
    */
-  TEXT_DECORATION("text-decoration"),
+  TEXT_DECORATION,
 
   /**
    * Specifies the color of the text-decoration-line.
    */
-  TEXT_DECORATION_COLOR("text-decoration-color"),
+  TEXT_DECORATION_COLOR,
 
   /**
    * Specifies what kind of line decorations are added to the element.
    */
-  TEXT_DECORATION_LINE("text-decoration-line"),
+  TEXT_DECORATION_LINE,
 
   /**
    * Specifies the style of the lines specified by the text-decoration-line property
    */
-  TEXT_DECORATION_STYLE("text-decoration-style"),
+  TEXT_DECORATION_STYLE,
 
   /**
    * Indent the first line of text.
    */
-  TEXT_INDENT("text-indent"),
+  TEXT_INDENT,
 
   /**
    * Specifies the justification method to use when the text-align property is set to justify.
    */
-  TEXT_JUSTIFY("text-justify"),
+  TEXT_JUSTIFY,
 
   /**
    * Specifies how the text content will be displayed, when it overflows the block containers.
    */
-  TEXT_OVERFLOW("text-overflow"),
+  TEXT_OVERFLOW,
 
   /**
    * Applies one or more shadows to the text content of an element.
    */
-  TEXT_SHADOW("text-shadow"),
+  TEXT_SHADOW,
 
   /**
    * Transforms the case of the text.
    */
-  TEXT_TRANSFORM("text-transform"),
+  TEXT_TRANSFORM,
 
   /**
    * Specify the location of the top edge of the positioned element.
    */
-  TOP("top"),
+  TOP,
 
   /**
    * Applies a 2D or 3D transformation to an element.
    */
-  TRANSFORM("transform"),
+  TRANSFORM,
 
   /**
    * Defines the origin of transformation for an element.
    */
-  TRANSFORM_ORIGIN("transform-origin"),
+  TRANSFORM_ORIGIN,
 
   /**
    * Specifies how nested elements are rendered in 3D space.
    */
-  TRANSFORM_STYLE("transform-style"),
+  TRANSFORM_STYLE,
 
   /**
    * Defines the transition between two states of an element.
    */
-  TRANSITION("transition"),
+  TRANSITION,
 
   /**
    * Specifies when the transition effect will start.
    */
-  TRANSITION_DELAY("transition-delay"),
+  TRANSITION_DELAY,
 
   /**
    * Specifies the number of seconds or milliseconds a transition effect should take to complete.
    */
-  TRANSITION_DURATION("transition-duration"),
+  TRANSITION_DURATION,
 
   /**
    * Specifies the names of the CSS properties to which a transition effect should be applied.
    */
-  TRANSITION_PROPERTY("transition-property"),
+  TRANSITION_PROPERTY,
 
   /**
    * Specifies the speed curve of the transition effect.
    */
-  TRANSITION_TIMING_FUNCTION("transition-timing-function"),
+  TRANSITION_TIMING_FUNCTION,
 
   /**
    * Sets the vertical positioning of an element relative to the current text baseline.
    */
-  VERTICAL_ALIGN("vertical-align"),
+  VERTICAL_ALIGN,
 
   /**
    * Specifies whether or not an element is visible.
    */
-  VISIBILITY("visibility"),
+  VISIBILITY,
 
   /**
    * Specifies how white space inside the element is handled.
    */
-  WHITE_SPACE("white-space"),
+  WHITE_SPACE,
 
   /**
    * Specify the width of an element.
    */
-  WIDTH("width"),
+  WIDTH,
 
   /**
    * Specifies how to break lines within words.
    */
-  WORD_BREAK("word-break"),
+  WORD_BREAK,
 
   /**
    * Sets the spacing between words.
    */
-  WORD_SPACING("word-spacing"),
+  WORD_SPACING,
 
   /**
    * Specifies whether to break words when the content overflows the boundaries of its container.
    */
-  WORD_WRAP("word-wrap"),
+  WORD_WRAP,
 
   /**
    * Specifies a layering or stacking order for positioned elements.
    */
-  Z_INDEX("z-index");
+  Z_INDEX;
 
-  String propertyName;
-
-  CSSProperty(String propertyName) {
-    this.propertyName = propertyName;
-  }
 
   @Override
   public String toString() {
-    return propertyName;
+    return this.name().toLowerCase().replace("_", "-");
   }
 }
