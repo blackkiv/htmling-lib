@@ -1,14 +1,12 @@
 package com.github.blck.htmling.util;
 
 import com.github.blck.htmling.annotation.Htmling;
-import com.github.blck.htmling.annotation.Style;
-import com.github.blck.htmling.annotation.Styles;
 import com.github.blck.htmling.annotation.Ignore;
+import com.github.blck.htmling.annotation.Property;
+import com.github.blck.htmling.annotation.Style;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.StringJoiner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,29 +26,29 @@ public class HtmlingUtil {
    * @return The representation of an object
    */
   public static String htmling(Object object) {
+    return getClassRepresentation(object);
+  }
+
+  private static String getClassRepresentation(Object object) {
     Class<?> clazz = object.getClass();
-    if (clazz.getAnnotationsByType(Htmling.class).length == 0) {
-      return "";
-    }
     Field[] fields = clazz.getDeclaredFields();
-    String styles = getClassStyles(clazz);
+    PropertyData propertyData = getClassProperty(clazz);
     String prefix = "<div" +
-        (styles.equals("")
+        (propertyData.styles.equals("")
             ? ">"
-            : String.format(" style=\"%s\">", styles));
-    StringJoiner stringJoiner =
+            : String.format(" style=\"%s\">", propertyData.styles));
+    StringJoiner joiner =
         new StringJoiner("", prefix, "</div>")
-            .add(getClassNameRepresentation(clazz));
+            .add(getClassNameRepresentation(propertyData.name));
     Arrays.stream(fields)
         .filter(field -> !field.isAnnotationPresent(Ignore.class))
         .map(field -> getFieldRepresentation(object, field))
-        .forEach(stringJoiner::add);
-    return stringJoiner.toString();
+        .forEach(joiner::add);
+    return joiner.toString();
   }
 
-  private static String getClassNameRepresentation(Class<?> clazz) {
-    String name = clazz.getSimpleName();
-    return String.format("<h1>%s</h1>", name);
+  private static String getClassNameRepresentation(String className) {
+    return String.format("<h1>%s</h1>", className);
   }
 
   private static String getFieldRepresentation(Object object, Field field) {
@@ -60,12 +58,13 @@ public class HtmlingUtil {
           new String[]{field.getName(), object.getClass().getSimpleName()});
       return "";
     }
-    String styles = getFieldStyles(field);
+    PropertyData propertyData = getFieldProperty(field);
+    String styles = propertyData.styles;
     String prefix = "<div" +
         (styles.equals("")
             ? ">"
             : String.format(" style=\"%s\">", styles));
-    return prefix + field.getName() + " : " + value + "</div>";
+    return prefix + propertyData.name + " : " + value + "</div>";
   }
 
   private static Object getFieldValue(Object object, Field field) {
@@ -77,10 +76,10 @@ public class HtmlingUtil {
       } else {
         String getterPrefix = clazz.getAnnotation(Htmling.class).getterPrefix();
         String fieldName = field.getName();
-        String setterFieldName = getterPrefix.equals("")
+        String getterFieldName = getterPrefix.equals("")
             ? fieldName
             : fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-        value = clazz.getMethod(getterPrefix + setterFieldName).invoke(object);
+        value = clazz.getMethod(getterPrefix + getterFieldName).invoke(object);
       }
     } catch (IllegalAccessException ex) {
       logger.log(Level.WARNING, "illegal access exception on field: {0} in class: {1}",
@@ -92,30 +91,38 @@ public class HtmlingUtil {
     return value;
   }
 
-  private static String getClassStyles(Class<?> clazz) {
-    List<Style> annotations = new ArrayList<>(Arrays.asList(clazz.getAnnotationsByType(Style.class)));
-    if (clazz.isAnnotationPresent(Styles.class)) {
-      annotations.addAll(Arrays.asList(clazz.getAnnotation(Styles.class).value()));
+  private static PropertyData getFieldProperty(Field field) {
+    if (!field.isAnnotationPresent(Property.class)) {
+      return new PropertyData(field.getName(), "");
     }
-    return resolveStyles(annotations);
+    Property annotation = field.getAnnotation(Property.class);
+    String name = annotation.value().equals("")
+        ? field.getName()
+        : annotation.value();
+    String styles = resolveStyles(annotation.styles());
+    return new PropertyData(name, styles);
   }
 
-  private static String getFieldStyles(Field field) {
-    List<Style> annotations = new ArrayList<>(Arrays.asList(field.getAnnotationsByType(Style.class)));
-    if (field.isAnnotationPresent(Styles.class)) {
-      annotations.addAll(Arrays.asList(field.getAnnotation(Styles.class).value()));
-    }
-    return resolveStyles(annotations);
+  private static PropertyData getClassProperty(Class<?> clazz) {
+    Htmling annotation = clazz.getAnnotation(Htmling.class);
+    String name = annotation.value().equals("")
+        ? clazz.getSimpleName()
+        : annotation.value();
+    String styles = resolveStyles(annotation.styles());
+    return new PropertyData(name, styles);
   }
 
-  private static String resolveStyles(List<Style> annotations) {
-    if (annotations.isEmpty()) {
+  private static String resolveStyles(Style[] annotations) {
+    if (annotations.length == 0) {
       return "";
     }
-    return annotations.stream()
+    return Arrays.stream(annotations)
         .map(style -> style.name() + ":" + style.value() + ";")
         .collect(Collectors.joining());
   }
 
+  private record PropertyData(String name, String styles) {
+
+  }
 }
 

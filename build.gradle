@@ -8,7 +8,7 @@ repositories {
     mavenCentral()
 }
 
-group 'com.github'
+group 'com.github.blck'
 version '1.0'
 
 java {
@@ -29,9 +29,9 @@ test {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'com.github.blck'
+            groupId = this.group
             artifactId = 'htmling'
-            version = '1.0'
+            version = this.version
 
             from components.java
         }

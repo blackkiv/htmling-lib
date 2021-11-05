@@ -10,4 +10,8 @@ import java.lang.annotation.Target;
 public @interface Htmling {
 
   String getterPrefix() default "get";
+
+  String value() default "";
+
+  Style[] styles() default {};
 }
