@@ -4,7 +4,7 @@ a better way to representing data (json suck)
 clone and run ./gradlew publishToMavenLocal
 
 for represent object use `@Htmling` annotation
-for ignore some field use `@IgnoreHtmling` annotation
+for ignore some field use `@Ignore` annotation
 
 # examples
 1)
@@ -28,13 +28,13 @@ result:
 2)
 ```java
 @Htmling
-@HtmlingStyle(name = "border", value = "medium dashed green")
+@Style(name = "border", value = "medium dashed green")
 public class Book {
-  @IgnoreHtmling
+  @Ignore
   Long id;
-  @HtmlingStyles({
-      @HtmlingStyle(name = "font-size", value = "30px"),
-      @HtmlingStyle(name = "background-color", value = "red")
+  @Styles({
+      @Style(name = "font-size", value = "30px"),
+      @Style(name = "background-color", value = "red")
   })
   String title;
   String description;
