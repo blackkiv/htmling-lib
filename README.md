@@ -1,7 +1,7 @@
 # htmlimg
 a better way to representing data (json suck)
 
-clone and run ./gradlew :htmling:publishToMavenLocal
+clone and run ./gradlew publishToMavenLocal
 
 for represent object use `@Htmling` annotation
 for ignore some field use `@IgnoreHtmling` annotation
