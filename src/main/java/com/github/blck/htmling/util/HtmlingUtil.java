@@ -32,14 +32,14 @@ public class HtmlingUtil {
   private static String getClassRepresentation(Object object) {
     Class<?> clazz = object.getClass();
     Field[] fields = clazz.getDeclaredFields();
-    PropertyData propertyData = getClassProperty(clazz);
-    String prefix = "<div className=\"" + clazz.getSimpleName() + "\"" +
-        (propertyData.styles.equals("")
-            ? ">"
-            : String.format(" style=\"%s\">", propertyData.styles));
+    ClassPropertyData classPropertyData = getClassProperty(clazz);
+    PropertyData propertyData =
+        new PropertyData("", classPropertyData.tag, classPropertyData.styles);
+    String prefix = resolveTagPrefix(propertyData, "className", clazz.getSimpleName());
+    String suffix = "</" + classPropertyData.tag + ">";
     StringJoiner joiner =
-        new StringJoiner("", prefix, "</div>")
-            .add(getClassNameRepresentation(propertyData.name));
+        new StringJoiner("", prefix, suffix)
+            .add(getTitleRepresentation(classPropertyData.title));
     Arrays.stream(fields)
         .filter(field -> !field.isAnnotationPresent(Ignore.class))
         .map(field -> getFieldRepresentation(object, field))
@@ -47,8 +47,10 @@ public class HtmlingUtil {
     return joiner.toString();
   }
 
-  private static String getClassNameRepresentation(String className) {
-    return String.format("<h1>%s</h1>", className);
+  private static String getTitleRepresentation(PropertyData title) {
+    String prefix = resolveTagPrefix(title, "title", "title");
+    String suffix = resolveTagSuffix(title.tag);
+    return prefix + title.value + suffix;
   }
 
   private static String getFieldRepresentation(Object object, Field field) {
@@ -59,12 +61,12 @@ public class HtmlingUtil {
       return "";
     }
     PropertyData propertyData = getFieldProperty(field);
-    String styles = propertyData.styles;
-    String prefix = "<div field=\"" + field.getName() + "\"" +
-        (styles.equals("")
-            ? ">"
-            : String.format(" style=\"%s\">", styles));
-    return prefix + propertyData.name + " : " + value + "</div>";
+    String prefix = resolveTagPrefix(propertyData, "field", field.getName());
+    String suffix = resolveTagSuffix(propertyData.tag);
+    String name = propertyData.value.equals("")
+        ? field.getName()
+        : propertyData.value;
+    return prefix + name + " : " + value + suffix;
   }
 
   private static Object getFieldValue(Object object, Field field) {
@@ -93,23 +95,33 @@ public class HtmlingUtil {
 
   private static PropertyData getFieldProperty(Field field) {
     if (!field.isAnnotationPresent(Property.class)) {
-      return new PropertyData(field.getName(), "");
+      try {
+        String tag = Property.class
+            .getDeclaredMethod("tag")
+            .getDefaultValue()
+            .toString();
+        return new PropertyData(field.getName(), tag, "");
+      } catch (NoSuchMethodException e) {
+        logger.log(Level.WARNING, "no tag method in annotation Property");
+      }
     }
     Property annotation = field.getAnnotation(Property.class);
-    String name = annotation.value().equals("")
-        ? field.getName()
-        : annotation.value();
-    String styles = resolveStyles(annotation.styles());
-    return new PropertyData(name, styles);
+    return resolveProperty(annotation);
   }
 
-  private static PropertyData getClassProperty(Class<?> clazz) {
+  private static ClassPropertyData getClassProperty(Class<?> clazz) {
     Htmling annotation = clazz.getAnnotation(Htmling.class);
-    String name = annotation.value().equals("")
-        ? clazz.getSimpleName()
-        : annotation.value();
+    PropertyData title = resolveProperty(annotation.title());
     String styles = resolveStyles(annotation.styles());
-    return new PropertyData(name, styles);
+    String tag = annotation.tag().toString();
+    return new ClassPropertyData(title, tag, styles);
+  }
+
+  private static PropertyData resolveProperty(Property annotation) {
+    String name = annotation.value();
+    String styles = resolveStyles(annotation.styles());
+    String tag = annotation.tag().toString();
+    return new PropertyData(name, tag, styles);
   }
 
   private static String resolveStyles(Style[] annotations) {
@@ -121,8 +133,22 @@ public class HtmlingUtil {
         .collect(Collectors.joining());
   }
 
-  private record PropertyData(String name, String styles) {
+  private static String resolveTagPrefix(PropertyData data, String prefixName, String prefixValue) {
+    return "<" + data.tag + " " + prefixName + "=\"" + prefixValue + "\"" +
+        (data.styles.equals("")
+            ? ">"
+            : String.format(" style=\"%s\">", data.styles));
+  }
+
+  private static String resolveTagSuffix(String tag) {
+    return "</" + tag + ">";
+  }
+
+  private record ClassPropertyData(PropertyData title, String tag, String styles) {
+
+  }
+
+  private record PropertyData(String value, String tag, String styles) {
 
   }
 }
-

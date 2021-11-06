@@ -66,8 +66,7 @@ public enum CSSProperty {
   ANIMATION_TIMING_FUNCTION,
 
   /**
-   * Specifies whether or not the "back" side of a transformed element is visible when facing the
-   * user.
+   * Specifies whether the "back" side of a transformed element is visible when facing the user.
    */
   BACKFACE_VISIBILITY,
 
@@ -438,7 +437,7 @@ public enum CSSProperty {
   FLEX_WRAP,
 
   /**
-   * Specifies whether or not a box should float.
+   * Specifies whether a box should float.
    */
   FLOAT,
 
@@ -684,7 +683,7 @@ public enum CSSProperty {
   QUOTES,
 
   /**
-   * Specifies whether or not an element is resizable by the user.
+   * Specifies whether an element is resizable by the user.
    */
   RESIZE,
 
@@ -710,7 +709,7 @@ public enum CSSProperty {
 
   /**
    * Specifies how the last line of a block or a line right before a forced line break is aligned
-   * when text-align is justify.
+   * when text-align is justified.
    */
   TEXT_ALIGN_LAST,
 
@@ -810,7 +809,7 @@ public enum CSSProperty {
   VERTICAL_ALIGN,
 
   /**
-   * Specifies whether or not an element is visible.
+   * Specifies whether an element is visible.
    */
   VISIBILITY,
 

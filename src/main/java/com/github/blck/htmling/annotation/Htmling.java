@@ -1,5 +1,6 @@
 package com.github.blck.htmling.annotation;
 
+import com.github.blck.htmling.enums.HTMLTag;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -11,7 +12,9 @@ public @interface Htmling {
 
   String getterPrefix() default "get";
 
-  String value() default "";
+  Property title() default @Property;
+
+  HTMLTag tag() default HTMLTag.DIV;
 
   Style[] styles() default {};
 }
