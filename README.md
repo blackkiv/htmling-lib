@@ -28,7 +28,6 @@ result:
 ```html
 
 <div>
-  <h1>Book</h1>
   <div>title : title</div>
   <div>description : description</div>
 </div>
@@ -39,18 +38,18 @@ result:
 ```java
 
 @Htmling(getterPrefix = "", styles = {
-    @Style(name = "background-color", value = "red"),
-    @Style(name = "border", value = "medium dashed blue"),
-    @Style(name = "font-style", value = "italic")
+    @Style(property = CSSProperty.BACKGROUND_COLOR, value = "red"),
+    @Style(property = CSSProperty.BORDER, value = "medium dashed blue"),
+    @Style(property = CSSProperty.FONT_STYLE, value = "italic")
 })
 public record Book(
-    @Property(styles = {@Style(name = "background-color", value = "orange")})
+    @Property(styles = {@Style(property = CSSProperty.BACKGROUND_COLOR, value = "orange")})
     String title,
-    @Property(styles = {@Style(name = "background-color", value = "yellow")})
+    @Property(styles = {@Style(property = CSSProperty.BACKGROUND_COLOR, value = "yellow")})
     String description,
-    @Property(styles = {@Style(name = "background-color", value = "green")})
+    @Property(styles = {@Style(property = CSSProperty.BACKGROUND_COLOR, value = "green")})
     LocalDate releasedAt,
-    @Property(styles = {@Style(name = "background-color", value = "cyan")})
+    @Property(styles = {@Style(property = CSSProperty.BACKGROUND_COLOR, value = "cyan")})
     int pages,
     @Ignore String secretInfo
 ) {
@@ -71,4 +70,44 @@ result:
 </div>
 ```
 
-![img.png](img.png)
+![img.png](images/img.png)
+
+3)
+
+```java
+
+@Htmling(tag = HTMLTag.UL, title = @Property(value = "amazing book", tag = HTMLTag.LI, styles = {
+    @Style(property = CSSProperty.FONT_WEIGHT, value = "bold")
+}), styles = {
+    @Style(property = CSSProperty.BACKGROUND_COLOR, value = "red")
+})
+public static class Book {
+
+  @Property(value = "amazing title", tag = HTMLTag.LI, styles = {
+      @Style(property = CSSProperty.FONT_SIZE, value = "30px")
+  })
+  private String title;
+
+  @Property(tag = HTMLTag.LI)
+  private String description;
+
+  @Property(value = "release date", tag = HTMLTag.LI)
+  private LocalDate releasedAt;
+
+  // getters setters and constructor
+}
+```
+
+result
+
+```html
+
+<ul classname="Book" style="background-color:red;">
+  <li title="" style="font-weight:bold;">amazing book</li>
+  <li field="title" style="font-size:30px;">amazing title : The Cake in the Sky</li>
+  <li field="description">description : Without description</li>
+  <li field="releasedAt">release date : 1995-01-01</li>
+</ul>
+```
+
+![img_1.png](images/img_1.png)

@@ -48,6 +48,9 @@ public class HtmlingUtil {
   }
 
   private static String getTitleRepresentation(PropertyData title) {
+    if (title.value.equals("")) {
+      return "";
+    }
     String prefix = resolveTagPrefix(title, "title", "title");
     String suffix = resolveTagSuffix(title.tag);
     return prefix + title.value + suffix;
