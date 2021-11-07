@@ -57,15 +57,15 @@ public class HtmlingUtil {
   }
 
   private static String getFieldRepresentation(Object object, Field field) {
-    Object value = getFieldValue(object, field);
-    if (value == null) {
+    Object rawValue = getFieldValue(object, field);
+    if (rawValue == null) {
       logger.log(Level.INFO, "no data in field: {0} in class: {1}",
           new String[]{field.getName(), object.getClass().getSimpleName()});
       return "";
     }
-    if (field.getType().isAnnotationPresent(Htmling.class)) {
-      return htmling(value);
-    }
+    String value = field.getType().isAnnotationPresent(Htmling.class)
+        ? htmling(rawValue)
+        : rawValue.toString();
     PropertyData propertyData = getFieldProperty(field);
     String prefix = resolveTagPrefix(propertyData, "field", field.getName());
     String suffix = resolveTagSuffix(propertyData.tag);
