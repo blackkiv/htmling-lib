@@ -63,6 +63,9 @@ public class HtmlingUtil {
           new String[]{field.getName(), object.getClass().getSimpleName()});
       return "";
     }
+    if (field.getType().isAnnotationPresent(Htmling.class)) {
+      return htmling(value);
+    }
     PropertyData propertyData = getFieldProperty(field);
     String prefix = resolveTagPrefix(propertyData, "field", field.getName());
     String suffix = resolveTagSuffix(propertyData.tag);
